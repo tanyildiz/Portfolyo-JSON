@@ -9,8 +9,11 @@
 import UIKit
 
 class CellTableViewCell: UITableViewCell {
-
     
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var workName: UILabel!
+    @IBAction func commentBtn(_ sender: UIButton) {
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
