@@ -19,30 +19,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let urlString = "http://www.tanyildiz.com/?json=1"
-        let url = URL(string: urlString)
-        let task = URLSession.shared.dataTask(with: url!)
-        {
-            (data, response, error) in
+        let urlStr = "http://www.tanyildiz.com/?json=1"
+        let url = URL(string: urlStr)
+        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+            
             if error != nil
             {
                 print(error!)
-            }
-            else
+            } else
             {
                 do
                 {
                     let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
-                    if let jsonDic = json
-                    {
-                        for i in 0..<jsonDic.count
-                        {
-                            if let workTitles = jsonDic[i] as? NSDictionary
-                            {
-                                self.works.append((workTitles["pages"]) as! NSString as String)
-                            }
-                        }
-                    }
+                    
                 }
                 catch
                 {
