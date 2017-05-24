@@ -30,8 +30,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             {
                 do
                 {
-                    let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                    let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSArray
+                    let val = json?.value(forKey: "posts") as! NSDictionary
+                    let titleName = val.value(forKey: "title")
+                    print(titleName!)
+                   
                     
+//                    let post = json?.dictionaryWithValues(forKeys: ["posts"])
+//                    for i in (post?.values)! {
+//                    }
                 }
                 catch
                 {
